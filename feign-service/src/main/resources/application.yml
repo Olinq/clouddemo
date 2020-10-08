@@ -1,0 +1,29 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: feign-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://replica1:8081//eureka/,http://replica2:8082//eureka/
+service-url:
+  user-service: http://user-service
+
+feign:
+  hystrix:
+    enabled: true #开启服务降级
+#  compression:
+#    request:
+#      enabled: false #是否对请求进行GZIP压缩
+#      mime-types: text/xml,application/xml,application/json #指定压缩的请求数据类型
+#      min-request-size: 2048 #超过该大小的请求会被压缩
+#    response:
+#      enabled: false #是否对响应进行GZIP压缩
+
+logging:
+  level:
+    com.hokli.feignservice.service.FeignUserService: debug

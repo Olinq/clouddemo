@@ -1,0 +1,11 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: eureka-client-security
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://lwoo:123456@localhost:8084/eureka/
