@@ -1,0 +1,19 @@
+server:
+  port: 8012
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/liliwo/springclouddemo-config.git
+          username: 2629910752@qq.com
+          password: linjinli199534
+          clone-on-start: true #开启启动时直接从git获取配置
+eureka:
+  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+    service-url:
+      defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka
