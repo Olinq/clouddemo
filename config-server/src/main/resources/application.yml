@@ -10,10 +10,21 @@ spring:
           uri: https://gitee.com/liliwo/springclouddemo-config.git
           username: 2629910752@qq.com
           password: linjinli199534
-          clone-on-start: true #¿ªÆôÆô¶¯Ê±Ö±½Ó´Ógit»ñÈ¡ÅäÖÃ
+          clone-on-start: true
+  rabbitmq:
+    password: aedb75dfc563674
+    username: root
+    host: 118.89.37.99
+    port: 5682
 eureka:
   client:
 #    register-with-eureka: true
 #    fetch-registry: true
     service-url:
       defaultZone: http://replica1:8081/eureka,http://replica2:8082/eureka
+
+management:
+  endpoints: #ï¿½ï¿½Â¶busË¢ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ¶Ëµï¿½
+    web:
+      exposure:
+        include: 'bus-refresh'

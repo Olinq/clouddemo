@@ -4,14 +4,23 @@ spring:
   application:
     name: config-client
   cloud:
-    config: #Config客户端配置
-      profile: dev #启用配置后缀名称
-      label: dev #分支名称
-      uri: http://localhost:8012 #配置中心地址
-      name: config #配置文件名称
-      server:
-        git:
-          search-paths: '{application}'
+    config:
+      profile: dev
+      label: dev
+      name: config
+      discovery:
+        service-id: config-server
+        enabled: true
+    #  cloud:
+#    config: #Config客户端配置
+#      profile: dev #启用配置后缀名称
+#      label: dev #分支名称
+#      uri: http://localhost:8012 #配置中心地址
+#      name: config #配置文件名称
+#      server:
+#        git:
+#          search-paths: '{application}'
+
 eureka:
   client:
     service-url:

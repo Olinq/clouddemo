@@ -1,0 +1,38 @@
+server:
+  port: 8019
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev
+      label: dev
+      name: config
+      discovery:
+        service-id: config-server
+        enabled: true
+  rabbitmq:
+    password: aedb75dfc563674
+    username: root
+    host: 118.89.37.99
+    port: 5682
+    #  cloud:
+#    config: #Config客户端配置
+#      profile: dev #启用配置后缀名称
+#      label: dev #分支名称
+#      uri: http://localhost:8012 #配置中心地址
+#      name: config #配置文件名称
+#      server:
+#        git:
+#          search-paths: '{application}'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://replica1:8081/eureka/,http://replica2:8082/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
