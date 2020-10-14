@@ -1,0 +1,49 @@
+server:
+  port: 8026
+service-url:
+  user-service: http://localhost:8002
+spring:
+  redis:
+    host: 118.89.37.99
+    password: 86a1b907d54bf70
+    port: 36378
+  cloud:
+    gateway:
+      routes:
+        - id: retry_route
+          uri: http://localhost:8002
+          predicates:
+            - Method=GET
+          filters:
+            - name: Retry
+              args:
+                retries: 1 #需要进行重试的次数
+                statuses: BAD_GATEWAY #返回哪个状态码需要进行重试，返回状态码为5XX进行重试
+                backoff:
+                  firstBackoff: 10ms
+                  maxBackoff: 50ms
+                  factor: 2
+                  basedOnPreviousValue: false
+#        - id: hystrix_route  #Hystrix 过滤器允许你将断路器功能添加到网关路由中，使你的服务免受级联故障的影响，并提供服务降级处理
+#          uri: http://localhost:8002
+#          predicates:
+#            - Method=GET
+#          filters:
+#            - name: Hystrix
+#              args:
+#                name: fallbackcmd
+#                fallbackUri: forward:/fallback
+#        - id: requestratelimiter_route #使用RateLimiter实现来确定是否允许当前请求继续进行，如果请求太大默认会返回HTTP 429-太多请求状态。
+#          uri: http://localhost:8002
+#          filters:
+#            - name: RequestRateLimiter
+#              args:
+#                redis-rate-limiter.replenishRate: 1 #每秒允许处理的请求数量
+#                redis-rate-limiter.burstCapacity: 2 #每秒最大处理的请求数量
+#                key-resolver: "#{@ipKeyResolver}" #限流策略，对应策略的Bean
+#          predicates:
+#            - Method=GET
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

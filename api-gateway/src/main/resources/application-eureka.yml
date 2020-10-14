@@ -1,0 +1,28 @@
+server:
+  port: 8027
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: prefixpath_route
+          uri: lb://user-service #此处需要使用lb协议
+          predicates:
+            - Method=GET
+          filters:
+            - PrefixPath=/user
+      discovery:
+        locator:
+          enabled: true
+#      discovery:
+#        locator:
+#          enabled: true #开启从注册中心动态创建路由的功能
+#          lower-case-service-id: true #使用小写服务名，默认是大写
+eureka:
+  client:
+    service-url:
+      defaultZone: http://replica1:8081/eureka/,http://replica2:8082/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
