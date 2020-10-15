@@ -1,8 +1,8 @@
-package com.hokli.oauth2server.service;
+package com.hokli.oauth2jwtserver.service;
 
-import com.hokli.oauth2server.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,7 +21,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostConstruct
     public void initData() {
         String password = passwordEncoder.encode("123456");
         userList = new ArrayList<>();
@@ -32,6 +31,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        this.initData();
         List<User> findUserList = userList.stream().filter(user -> user.getUsername().equals(username)).collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(findUserList)) {
             return findUserList.get(0);

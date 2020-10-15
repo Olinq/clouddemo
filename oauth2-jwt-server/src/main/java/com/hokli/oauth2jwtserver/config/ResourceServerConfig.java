@@ -1,4 +1,4 @@
-package com.hokli.oauth2server.config;
+package com.hokli.oauth2jwtserver.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
