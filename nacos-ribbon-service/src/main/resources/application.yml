@@ -1,0 +1,16 @@
+server:
+  port: 8205
+spring:
+  application:
+    name: nacos-ribbon-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #≈‰÷√Nacosµÿ÷∑
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+service-url:
+  nacos-user-service: http://nacos-user-service
