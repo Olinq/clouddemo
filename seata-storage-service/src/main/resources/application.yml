@@ -11,10 +11,10 @@ spring:
       discovery:
         server-addr: localhost:8848
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    password: b18a021d11a3004
-    url: jdbc:mysql://118.89.37.99:13306/seat-storage
-    username: dev_root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/seat-storage?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
 logging:
   level:
     io:

@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.2.RELEASE</version>
+        <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hokli</groupId>
@@ -17,11 +17,11 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-        <mysql-connector-java.version>5.1.37</mysql-connector-java.version>
+<!--        <mysql-connector-java.version>5.1.37</mysql-connector-java.version>-->
         <mybatis-spring-boot-starter.version>2.0.0</mybatis-spring-boot-starter.version>
         <druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
         <lombok.version>1.18.8</lombok.version>
-        <seata.version>0.9.0</seata.version>
+        <seata.version>1.4.0</seata.version>
     </properties>
 
     <dependencies>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java.version}</version>
+<!--            <version>${mysql-connector-java.version}</version>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

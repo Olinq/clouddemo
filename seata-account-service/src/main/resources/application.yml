@@ -1,20 +1,20 @@
 server:
-  port: 8182
+  port: 8183
 spring:
   application:
     name: seata-account-service
   cloud:
-    alibaba:
-      seata:
-        tx-service-group: fsp_tx_group
     nacos:
       discovery:
         server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: fsp_tx_group
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    password: b18a021d11a3004
-    url: jdbc:mysql://118.89.37.99:13306/seat-account
-    username: dev_root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/seat-account?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
 logging:
   level:
     io:

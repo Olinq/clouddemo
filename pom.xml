@@ -4,6 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
+        <module>admin-client</module>
+        <module>admin-security-server</module>
+        <module>admin-server</module>
+        <module>api-gateway</module>
+        <module>consul-config-client</module>
+        <module>config-security-server</module>
+        <module>consul-ribbon-service</module>
+        <module>consul-user-service</module>
         <module>commonJar</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
